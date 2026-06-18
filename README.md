@@ -59,14 +59,14 @@ pip install mysql-connector-python
 ---
 
 ### Passo 4: Configurar a conexão com o bancoAbra o arquivo db.py e verifique as configurações:
-Python_DB_PARAMS = {
-    'host':     'localhost',
-    'user':     'root',
-    'password': '',          # Deixe vazio se não definiu senha no XAMPP
-    'database': 'casa_gestor',
-   
-    ...
-}
+Python_DB_PARAMS = {  
+    'host':     'localhost',  
+    'user':     'root',  
+    'password': '',          # Deixe vazio se não definiu senha no XAMPP  
+    'database': 'casa_gestor',  
+     
+    ...  
+}  
 Faça o mesmo ajuste de senha na função iniciar_bd() no final do mesmo arquivo, se necessário.  
 
 ---
