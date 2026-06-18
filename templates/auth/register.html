@@ -1,0 +1,164 @@
+{% extends "base_public.html" %}
+
+{% block title %}Cadastro — CasaGestor{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Criar sua conta</h2>
+            <p class="text-muted">Preencha os dados abaixo para se cadastrar</p>
+        </div>
+
+        <form action="#" method="post">
+            <div class="row justify-content-center g-4">
+
+                <!-- Card 1: Dados Pessoais -->
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-primary text-white fw-semibold">
+                            <i class="bi bi-person-fill me-2"></i>Dados Pessoais
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">
+                                        Nome Completo <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Seu nome completo">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        CPF <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="000.000.000-00">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        Data de Nascimento <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="date" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        E-mail <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="email" class="form-control" placeholder="seu@email.com">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        Celular <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="(00) 00000-0000">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Endereço -->
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-secondary text-white fw-semibold">
+                            <i class="bi bi-geo-alt-fill me-2"></i>Endereço
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">
+                                        CEP <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="00000-000">
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label fw-semibold">
+                                        Logradouro <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Rua, Avenida, Travessa…">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">
+                                        Número <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Nº">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Complemento</label>
+                                    <input type="text" class="form-control" placeholder="Apto, Bloco…">
+                                </div>
+                                <div class="col-md-5">
+                                    <label class="form-label fw-semibold">
+                                        Bairro <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Bairro">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        Cidade <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" placeholder="Cidade">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">
+                                        Estado <span class="text-danger">*</span>
+                                    </label>
+                                    <select class="form-select">
+                                        <option value="">UF</option>
+                                        <option>AC</option><option>AL</option><option>AP</option>
+                                        <option>AM</option><option>BA</option><option>CE</option>
+                                        <option>DF</option><option>ES</option><option>GO</option>
+                                        <option>MA</option><option>MT</option><option>MS</option>
+                                        <option>MG</option><option>PA</option><option>PB</option>
+                                        <option>PR</option><option>PE</option><option>PI</option>
+                                        <option>RJ</option><option>RN</option><option>RS</option>
+                                        <option>RO</option><option>RR</option><option>SC</option>
+                                        <option>SP</option><option>SE</option><option>TO</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold">País</label>
+                                    <input type="text" class="form-control" value="Brasil" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Dados de Acesso -->
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-dark text-white fw-semibold">
+                            <i class="bi bi-lock-fill me-2"></i>Dados de Acesso
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        Senha <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="password" class="form-control" placeholder="Mínimo 8 caracteres">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">
+                                        Confirmar Senha <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="password" class="form-control" placeholder="Repita a senha">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botões -->
+                <div class="col-lg-8 d-flex justify-content-between">
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-secondary">
+                        Já tenho conta
+                    </a>
+                    <button type="submit" class="btn btn-primary px-5">Cadastrar</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

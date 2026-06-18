@@ -1,0 +1,67 @@
+{% extends "base_public.html" %}
+
+{% block title %}Sobre — CasaGestor{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Sobre os Desenvolvedores</h1>
+            <p class="text-muted lead">Conheça a equipe por trás do CasaGestor</p>
+        </div>
+
+        <div class="row justify-content-center g-4">
+
+            <!-- Desenvolvedor 1 -->
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="avatar-large mx-auto mb-3">
+                        <i class="bi bi-person-fill" style="font-size:2.8rem;"></i>
+                    </div>
+                    <h4 class="fw-bold mb-1">João da Silva</h4>
+                    <p class="text-primary fw-semibold mb-3">Desenvolvedor Full Stack</p>
+                    <p class="text-muted">
+                        Especialista em desenvolvimento web com experiência em Python, Flask e
+                        frameworks modernos de front-end. Apaixonado por criar soluções práticas
+                        que facilitam o dia a dia das pessoas.
+                    </p>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                        <a href="#" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-github me-1"></i>GitHub
+                        </a>
+                        <a href="#" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-linkedin me-1"></i>LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desenvolvedor 2 -->
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="avatar-large mx-auto mb-3"
+                         style="background:linear-gradient(135deg,#F47B20,#7B2FBE);">
+                        <i class="bi bi-person-fill" style="font-size:2.8rem;"></i>
+                    </div>
+                    <h4 class="fw-bold mb-1">Maria Souza</h4>
+                    <p class="text-secondary fw-semibold mb-3">Desenvolvedora Front-end & UX</p>
+                    <p class="text-muted">
+                        Designer e desenvolvedora com foco em experiência do usuário e interfaces
+                        responsivas. Transforma ideias complexas em interfaces simples, intuitivas
+                        e acessíveis para todos os públicos.
+                    </p>
+                    <div class="d-flex justify-content-center gap-2 mt-3">
+                        <a href="#" class="btn btn-sm" style="border-color:#F47B20;color:#F47B20;">
+                            <i class="bi bi-github me-1"></i>GitHub
+                        </a>
+                        <a href="#" class="btn btn-sm" style="border-color:#F47B20;color:#F47B20;">
+                            <i class="bi bi-linkedin me-1"></i>LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

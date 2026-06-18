@@ -1,0 +1,59 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}Visualizar Despesa — CasaGestor{% endblock %}
+{% block page_title %}Visualizar Despesa{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('despesas_listar') }}">Despesas</a></li>
+            <li class="breadcrumb-item active">Visualizar</li>
+        </ol>
+    </nav>
+    <a href="{{ url_for('despesas_alterar', id=item.id_despesa) }}" class="btn btn-warning">
+        <i class="bi bi-pencil me-2"></i>Editar
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-header bg-white fw-semibold py-3">
+        <i class="bi bi-wallet2 me-2 text-primary"></i>Dados da Despesa
+    </div>
+    <div class="card-body p-4">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <p class="text-muted mb-1 small">Descrição</p>
+                <p class="fw-semibold mb-0">{{ item.descricao }}</p>
+            </div>
+            <div class="col-md-6">
+                <p class="text-muted mb-1 small">Responsável</p>
+                <p class="fw-semibold mb-0">{{ item.usuario_nome }}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small">Valor (R$)</p>
+                <p class="fw-bold text-danger mb-0">R$ {{ "%.2f"|format(item.valor) }}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small">Vencimento</p>
+                <p class="fw-semibold mb-0">{{ item.vencimento.strftime('%d/%m/%Y') }}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small">Status</p>
+                {% if item.status == 'Pago' %}
+                <span class="badge bg-success">{{ item.status }}</span>
+                {% else %}
+                <span class="badge bg-danger">{{ item.status }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="{{ url_for('despesas_listar') }}" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left me-2"></i>Voltar
+</a>
+
+{% endblock %}

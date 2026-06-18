@@ -1,0 +1,133 @@
+{% extends "base_public.html" %}
+
+{% block title %}CasaGestor — Gestão de Tarefas Domésticas{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-3">Organize sua casa com facilidade</h1>
+        <p class="lead mb-4" style="opacity:.9;">
+            CasaGestor é a plataforma completa para gerenciar tarefas domésticas, distribuir
+            responsabilidades e manter todos os moradores na mesma página.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{{ url_for('cadastro') }}" class="btn btn-warning btn-lg fw-semibold px-4">
+                Começar Agora
+            </a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg px-4">
+                Já tenho conta
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Funcionalidades -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Tudo que você precisa para organizar seu lar</h2>
+            <p class="text-muted">Funcionalidades pensadas para o dia a dia de cada família</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-4">
+                    <div class="feature-icon mx-auto">
+                        <i class="bi bi-list-check"></i>
+                    </div>
+                    <h5 class="fw-bold">Gestão de Tarefas</h5>
+                    <p class="text-muted mb-0">Crie, atribua e acompanhe tarefas com prioridades e prazos definidos para cada morador.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-4">
+                    <div class="feature-icon mx-auto">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h5 class="fw-bold">Múltiplos Usuários</h5>
+                    <p class="text-muted mb-0">Adicione todos os moradores e distribua as responsabilidades de forma justa e transparente.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-4">
+                    <div class="feature-icon mx-auto">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <h5 class="fw-bold">Relatórios Detalhados</h5>
+                    <p class="text-muted mb-0">Visualize o progresso das tarefas com relatórios completos e filtros personalizados.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-4">
+                    <div class="feature-icon mx-auto">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h5 class="fw-bold">Controle de Acesso</h5>
+                    <p class="text-muted mb-0">Defina funções e permissões para cada membro, garantindo a segurança das informações.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-4">
+                    <div class="feature-icon mx-auto">
+                        <i class="bi bi-bell-fill"></i>
+                    </div>
+                    <h5 class="fw-bold">Notificações</h5>
+                    <p class="text-muted mb-0">Receba alertas sobre tarefas próximas do prazo e acompanhe atualizações em tempo real.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center p-4">
+                    <div class="feature-icon mx-auto">
+                        <i class="bi bi-phone-fill"></i>
+                    </div>
+                    <h5 class="fw-bold">Acesso em Qualquer Lugar</h5>
+                    <p class="text-muted mb-0">Interface responsiva acessível de qualquer dispositivo — computador, tablet ou celular.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Como funciona -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Como funciona?</h2>
+            <p class="text-muted">Três passos simples para transformar a organização da sua casa</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-3 text-center">
+                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3"
+                     style="width:56px;height:56px;font-size:1.4rem;font-weight:700;">1</div>
+                <h6 class="fw-bold">Cadastre-se</h6>
+                <p class="text-muted small mb-0">Crie sua conta gratuitamente em poucos minutos.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="rounded-circle bg-secondary text-white d-inline-flex align-items-center justify-content-center mb-3"
+                     style="width:56px;height:56px;font-size:1.4rem;font-weight:700;">2</div>
+                <h6 class="fw-bold">Adicione Membros</h6>
+                <p class="text-muted small mb-0">Convide os moradores e defina a função de cada um.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center mb-3"
+                     style="width:56px;height:56px;font-size:1.4rem;font-weight:700;">3</div>
+                <h6 class="fw-bold">Gerencie Tarefas</h6>
+                <p class="text-muted small mb-0">Crie tarefas, atribua responsáveis e acompanhe o progresso.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA final -->
+<section class="py-5 text-center" style="background:linear-gradient(135deg,#7B2FBE,#F47B20);">
+    <div class="container text-white">
+        <h2 class="fw-bold mb-3">Pronto para organizar sua casa?</h2>
+        <p class="lead mb-4" style="opacity:.9;">Comece hoje mesmo e veja a diferença na organização do seu lar.</p>
+        <a href="{{ url_for('cadastro') }}" class="btn btn-light btn-lg fw-semibold px-5">
+            Criar minha conta
+        </a>
+    </div>
+</section>
+
+{% endblock %}

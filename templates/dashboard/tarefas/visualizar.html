@@ -1,0 +1,71 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}Visualizar Tarefa — CasaGestor{% endblock %}
+{% block page_title %}Visualizar Tarefa{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('tarefas_listar') }}">Tarefas</a></li>
+            <li class="breadcrumb-item active">Visualizar</li>
+        </ol>
+    </nav>
+    <a href="{{ url_for('tarefas_alterar', id=item.id_tarefa) }}" class="btn btn-warning">
+        <i class="bi bi-pencil me-2"></i>Editar
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-header bg-white fw-semibold py-3">
+        <i class="bi bi-list-task me-2 text-primary"></i>Dados da Tarefa
+    </div>
+    <div class="card-body p-4">
+        <div class="row g-4">
+            <div class="col-12">
+                <p class="text-muted mb-1 small">Título</p>
+                <p class="fw-semibold mb-0">{{ item.titulo }}</p>
+            </div>
+            <div class="col-12">
+                <p class="text-muted mb-1 small">Descrição</p>
+                <p class="fw-semibold mb-0">{{ item.descricao if item.descricao else 'Nenhuma descrição fornecida.' }}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small">Responsável</p>
+                <p class="fw-semibold mb-0">{{ item.responsavel if item.responsavel else 'Não definido' }}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small">Prioridade</p>
+                {% if item.prioridade == 'Alta' %}
+                <span class="badge bg-danger">{{ item.prioridade }}</span>
+                {% elif item.prioridade == 'Média' %}
+                <span class="badge bg-warning text-dark">{{ item.prioridade }}</span>
+                {% else %}
+                <span class="badge bg-success">{{ item.prioridade }}</span>
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small">Prazo</p>
+                <p class="fw-semibold mb-0">{{ item.prazo.strftime('%d/%m/%Y') if item.prazo else '--' }}</p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small">Status</p>
+                {% if item.status == 'Concluído' %}
+                <span class="badge bg-success">{{ item.status }}</span>
+                {% elif item.status == 'Em Andamento' %}
+                <span class="badge bg-info text-dark">{{ item.status }}</span>
+                {% else %}
+                <span class="badge bg-warning text-dark">{{ item.status }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="{{ url_for('tarefas_listar') }}" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left me-2"></i>Voltar
+</a>
+
+{% endblock %}

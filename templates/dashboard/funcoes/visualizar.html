@@ -1,0 +1,82 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}Visualizar Função — CasaGestor{% endblock %}
+{% block page_title %}Visualizar Função{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('funcoes_listar') }}">Funções</a></li>
+            <li class="breadcrumb-item active">Visualizar</li>
+        </ol>
+    </nav>
+    <a href="{{ url_for('funcoes_alterar', id=item.id_funcao) }}" class="btn btn-warning">
+        <i class="bi bi-pencil me-2"></i>Editar
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-header bg-white fw-semibold py-3">
+        <i class="bi bi-shield-fill me-2 text-primary"></i>Dados da Função
+    </div>
+    <div class="card-body p-4">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <p class="text-muted mb-1 small">Nome da Função</p>
+                <p class="fw-semibold mb-0">{{ item.nome }}</p>
+            </div>
+            <div class="col-md-6">
+                <p class="text-muted mb-1 small">Status</p>
+                {% if item.status == 'Ativo' %}
+                <span class="badge bg-success">{{ item.status }}</span>
+                {% else %}
+                <span class="badge bg-secondary">{{ item.status }}</span>
+                {% endif %}
+            </div>
+            <div class="col-12">
+                <p class="text-muted mb-1 small">Descrição</p>
+                <p class="mb-0">{{ item.descricao if item.descricao else 'Nenhuma descrição fornecida.' }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-header bg-white fw-semibold py-3">
+        <i class="bi bi-toggles me-2 text-primary"></i>Permissões
+    </div>
+    <div class="card-body p-4">
+        <div class="row g-3">
+            <div class="col-md-4">
+                {% if item.gerenciar_usuarios %}
+                <span class="badge bg-success me-1 px-3 py-2"><i class="bi bi-check-circle-fill me-2"></i>Gerenciar Usuários</span>
+                {% else %}
+                <span class="badge bg-secondary me-1 px-3 py-2"><i class="bi bi-x-circle-fill me-2"></i>Gerenciar Usuários</span>
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                {% if item.gerenciar_funcoes %}
+                <span class="badge bg-success me-1 px-3 py-2"><i class="bi bi-check-circle-fill me-2"></i>Gerenciar Funções</span>
+                {% else %}
+                <span class="badge bg-secondary me-1 px-3 py-2"><i class="bi bi-x-circle-fill me-2"></i>Gerenciar Funções</span>
+                {% endif %}
+            </div>
+            <div class="col-md-4">
+                {% if item.gerenciar_tarefas %}
+                <span class="badge bg-success me-1 px-3 py-2"><i class="bi bi-check-circle-fill me-2"></i>Gerenciar Tarefas</span>
+                {% else %}
+                <span class="badge bg-secondary me-1 px-3 py-2"><i class="bi bi-x-circle-fill me-2"></i>Gerenciar Tarefas</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="{{ url_for('funcoes_listar') }}" class="btn btn-outline-secondary">
+    <i class="bi bi-arrow-left me-2"></i>Voltar
+</a>
+
+{% endblock %}

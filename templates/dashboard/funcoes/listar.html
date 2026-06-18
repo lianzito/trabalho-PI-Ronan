@@ -1,0 +1,69 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}Funções — CasaGestor{% endblock %}
+{% block page_title %}Funções de Usuário{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Funções</li>
+        </ol>
+    </nav>
+    <a href="{{ url_for('funcoes_cadastrar') }}" class="btn btn-primary">
+        <i class="bi bi-shield-plus me-2"></i>Cadastrar Função
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Status</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for d in dados %}
+                    <tr>
+                        <td>{{ d.id_funcao }}</td>
+                        <td class="fw-semibold">{{ d.nome }}</td>
+                        <td>{{ d.descricao }}</td>
+                        <td>
+                            {% if d.status == 'Ativo' %}
+                            <span class="badge bg-success">{{ d.status }}</span>
+                            {% else %}
+                            <span class="badge bg-danger">{{ d.status }}</span>
+                            {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <a href="{{ url_for('funcoes_visualizar', id=d.id_funcao) }}"
+                               class="btn btn-sm btn-outline-info me-1" title="Visualizar">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a href="{{ url_for('funcoes_alterar', id=d.id_funcao) }}"
+                               class="btn btn-sm btn-outline-warning me-1" title="Alterar">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <form action="{{ url_for('funcoes_excluir', id=d.id_funcao) }}" method="POST" class="d-inline" onsubmit="return confirm('Tem certeza que deseja excluir esta função?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger" title="Excluir">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

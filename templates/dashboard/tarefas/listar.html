@@ -1,0 +1,83 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}Tarefas — CasaGestor{% endblock %}
+{% block page_title %}Tarefas{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Tarefas</li>
+        </ol>
+    </nav>
+    <a href="{{ url_for('tarefas_cadastrar') }}" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-2"></i>Cadastrar Tarefa
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Título</th>
+                        <th>Responsável</th>
+                        <th>Prioridade</th>
+                        <th>Status</th>
+                        <th>Prazo</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in itens %}
+                    <tr>
+                        <td>{{ item.id_tarefa }}</td>
+                        <td class="fw-semibold">{{ item.titulo }}</td>
+                        <td>{{ item.responsavel if item.responsavel else 'Não definido' }}</td>
+                        <td>
+                            {% if item.prioridade == 'Alta' %}
+                            <span class="badge bg-danger">{{ item.prioridade }}</span>
+                            {% elif item.prioridade == 'Média' %}
+                            <span class="badge bg-warning text-dark">{{ item.prioridade }}</span>
+                            {% else %}
+                            <span class="badge bg-success">{{ item.prioridade }}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if item.status == 'Concluído' %}
+                            <span class="badge bg-success">{{ item.status }}</span>
+                            {% elif item.status == 'Em Andamento' %}
+                            <span class="badge bg-info text-dark">{{ item.status }}</span>
+                            {% else %}
+                            <span class="badge bg-warning text-dark">{{ item.status }}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ item.prazo.strftime('%d/%m/%Y') if item.prazo else '--' }}</td>
+                        <td class="text-center">
+                            <a href="{{ url_for('tarefas_visualizar', id=item.id_tarefa) }}"
+                               class="btn btn-sm btn-outline-info me-1" title="Visualizar">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                            <a href="{{ url_for('tarefas_alterar', id=item.id_tarefa) }}"
+                               class="btn btn-sm btn-outline-warning me-1" title="Alterar">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <form action="{{ url_for('tarefas_excluir', id=item.id_tarefa) }}" method="POST" class="d-inline" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                                <button type="submit" class="btn btn-sm btn-outline-danger" title="Excluir">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

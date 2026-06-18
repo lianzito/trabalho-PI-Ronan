@@ -1,0 +1,81 @@
+{% extends "base_dashboard.html" %}
+
+{% block title %}{{ titulo }} — CasaGestor{% endblock %}
+{% block page_title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+
+<div class="mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('tarefas_listar') }}">Tarefas</a></li>
+            <li class="breadcrumb-item active">{{ titulo }}</li>
+        </ol>
+    </nav>
+</div>
+
+<form action="" method="post">
+    <div class="card border-0 shadow-sm mb-4">
+        <div class="card-header bg-white fw-semibold py-3">
+            <i class="bi bi-list-task me-2 text-primary"></i>Dados da Tarefa
+        </div>
+        <div class="card-body p-4">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="form-label fw-semibold">Título da Tarefa</label>
+                    <input type="text" class="form-control" name="titulo"
+                           value="{{ item.titulo if item else '' }}"
+                           placeholder="Descreva a tarefa brevemente" required>
+                </div>
+                <div class="col-12">
+                    <label class="form-label fw-semibold">Descrição</label>
+                    <textarea class="form-control" name="descricao" rows="3"
+                              placeholder="Detalhes adicionais sobre a tarefa">{{ item.descricao if item else '' }}</textarea>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Responsável</label>
+                    <select class="form-select" name="responsavel_id">
+                        <option value="">Selecione…</option>
+                        {% for u in lista_usuarios %}
+                            <option value="{{ u.id_usuario }}" {% if item and item.responsavel_id == u.id_usuario %}selected{% endif %}>
+                                {{ u.nome }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Prioridade</label>
+                    <select class="form-select" name="prioridade">
+                        <option value="Alta" {% if item and item.prioridade == 'Alta' %}selected{% endif %}>Alta</option>
+                        <option value="Média" {% if not item or item.prioridade == 'Média' %}selected{% endif %}>Média</option>
+                        <option value="Baixa" {% if item and item.prioridade == 'Baixa' %}selected{% endif %}>Baixa</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Status</label>
+                    <select class="form-select" name="status">
+                        <option value="Pendente" {% if not item or item.status == 'Pendente' %}selected{% endif %}>Pendente</option>
+                        <option value="Em Andamento" {% if item and item.status == 'Em Andamento' %}selected{% endif %}>Em Andamento</option>
+                        <option value="Concluído" {% if item and item.status == 'Concluído' %}selected{% endif %}>Concluído</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Prazo</label>
+                    <input type="date" class="form-control" name="prazo" value="{{ item.prazo if item else '' }}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <a href="{{ url_for('tarefas_listar') }}" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left me-2"></i>Cancelar
+        </a>
+        <button type="submit" class="btn btn-primary px-4">
+            <i class="bi bi-check-lg me-2"></i>Salvar
+        </button>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,194 @@
+/* ── Variáveis de cor ─────────────────────────────────────────────── */
+:root {
+    --bs-primary: #7B2FBE;
+    --bs-primary-rgb: 123, 47, 190;
+    --bs-secondary: #F47B20;
+    --bs-secondary-rgb: 244, 123, 32;
+    --bs-link-color: #7B2FBE;
+    --bs-link-hover-color: #6625A0;
+}
+
+/* ── Botões ───────────────────────────────────────────────────────── */
+.btn-primary {
+    --bs-btn-bg: #7B2FBE;
+    --bs-btn-border-color: #7B2FBE;
+    --bs-btn-hover-bg: #6625A0;
+    --bs-btn-hover-border-color: #6625A0;
+    --bs-btn-active-bg: #5a1d8a;
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-disabled-bg: #7B2FBE;
+    --bs-btn-disabled-border-color: #7B2FBE;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #7B2FBE;
+    --bs-btn-border-color: #7B2FBE;
+    --bs-btn-hover-bg: #7B2FBE;
+    --bs-btn-hover-border-color: #7B2FBE;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-active-bg: #6625A0;
+}
+
+.btn-secondary {
+    --bs-btn-bg: #F47B20;
+    --bs-btn-border-color: #F47B20;
+    --bs-btn-hover-bg: #D96A17;
+    --bs-btn-hover-border-color: #D96A17;
+    --bs-btn-active-bg: #c05e14;
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-disabled-bg: #F47B20;
+    --bs-btn-disabled-border-color: #F47B20;
+}
+
+.btn-outline-secondary {
+    --bs-btn-color: #6c757d;
+    --bs-btn-border-color: #6c757d;
+    --bs-btn-hover-bg: #6c757d;
+    --bs-btn-hover-color: #fff;
+}
+
+/* ── Cores utilitárias ────────────────────────────────────────────── */
+.text-primary  { color: #7B2FBE !important; }
+.text-secondary { color: #F47B20 !important; }
+.bg-primary    { background-color: #7B2FBE !important; }
+.bg-secondary  { background-color: #F47B20 !important; }
+.border-primary { border-color: #7B2FBE !important; }
+.bg-primary-subtle { background-color: rgba(123, 47, 190, 0.12) !important; }
+
+/* ── Navbar pública ───────────────────────────────────────────────── */
+.navbar-brand  { color: #7B2FBE !important; }
+.nav-link.active { color: #d4bce9 !important; font-weight: 600; }
+
+/* ── Hero ─────────────────────────────────────────────────────────── */
+.hero-section {
+    background: linear-gradient(135deg, #7B2FBE 0%, #F47B20 100%);
+    color: white;
+    padding: 5.5rem 0;
+}
+
+/* ── Ícone de feature ─────────────────────────────────────────────── */
+.feature-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #7B2FBE, #F47B20);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+/* ── Avatares ─────────────────────────────────────────────────────── */
+.avatar-circle {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, #7B2FBE, #F47B20);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.avatar-large {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #7B2FBE, #F47B20);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────── */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #1a1a2e;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-brand {
+    padding: 1.25rem 1rem;
+    color: white;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar .nav-section-title {
+    color: rgba(255,255,255,0.35);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1rem 1rem 0.25rem;
+    list-style: none;
+}
+
+.sidebar .nav-link {
+    color: rgba(255,255,255,0.7);
+    padding: 0.45rem 1rem;
+    transition: background 0.15s, color 0.15s;
+    font-size: 0.9rem;
+    border-radius: 0;
+}
+
+.sidebar .nav-link:hover {
+    color: #fff;
+    background: rgba(123, 47, 190, 0.25);
+}
+
+.sidebar .nav-link.active {
+    color: #fff;
+    background: rgba(123, 47, 190, 0.5);
+}
+
+.sub-nav-link {
+    padding-left: 2.25rem !important;
+}
+
+.sidebar-footer {
+    padding: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: auto;
+}
+
+/* ── Conteúdo principal ───────────────────────────────────────────── */
+.main-content {
+    margin-left: 250px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-navbar {
+    background: white;
+    border-bottom: 1px solid #e9ecef;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* ── Cards de estatísticas ────────────────────────────────────────── */
+.stat-card { border-left: 4px solid #7B2FBE; }
+.stat-card.secondary { border-left-color: #F47B20; }
+
+/* ── Card headers coloridos ───────────────────────────────────────── */
+.card-header.bg-primary  { background-color: #7B2FBE !important; }
+.card-header.bg-secondary { background-color: #F47B20 !important; }
