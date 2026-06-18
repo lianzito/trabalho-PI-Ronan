@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── Reset / Base ─────────────────────────────────────────────────── */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fc; /* Fundo levemente cinza para destacar os cards brancos */
+    color: #333;
+}
+
+/* ── Custom Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8; 
+}
+
 /* ── Variáveis de cor ─────────────────────────────────────────────── */
 :root {
     --bs-primary: #7B2FBE;
@@ -9,6 +34,17 @@
 }
 
 /* ── Botões ───────────────────────────────────────────────────────── */
+.btn {
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
 .btn-primary {
     --bs-btn-bg: #7B2FBE;
     --bs-btn-border-color: #7B2FBE;
@@ -17,8 +53,8 @@
     --bs-btn-active-bg: #5a1d8a;
     --bs-btn-color: #fff;
     --bs-btn-hover-color: #fff;
-    --bs-btn-disabled-bg: #7B2FBE;
-    --bs-btn-disabled-border-color: #7B2FBE;
+    --bs-btn-disabled-bg: #9c63d1;
+    --bs-btn-disabled-border-color: #9c63d1;
 }
 
 .btn-outline-primary {
@@ -38,8 +74,8 @@
     --bs-btn-active-bg: #c05e14;
     --bs-btn-color: #fff;
     --bs-btn-hover-color: #fff;
-    --bs-btn-disabled-bg: #F47B20;
-    --bs-btn-disabled-border-color: #F47B20;
+    --bs-btn-disabled-bg: #f7a05e;
+    --bs-btn-disabled-border-color: #f7a05e;
 }
 
 .btn-outline-secondary {
@@ -58,14 +94,20 @@
 .bg-primary-subtle { background-color: rgba(123, 47, 190, 0.12) !important; }
 
 /* ── Navbar pública ───────────────────────────────────────────────── */
-.navbar-brand  { color: #7B2FBE !important; }
+.navbar-brand  { 
+    color: #7B2FBE !important; 
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
 .nav-link.active { color: #d4bce9 !important; font-weight: 600; }
 
 /* ── Hero ─────────────────────────────────────────────────────────── */
 .hero-section {
     background: linear-gradient(135deg, #7B2FBE 0%, #F47B20 100%);
     color: white;
-    padding: 5.5rem 0;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
 }
 
 /* ── Ícone de feature ─────────────────────────────────────────────── */
@@ -73,28 +115,35 @@
     width: 64px;
     height: 64px;
     background: linear-gradient(135deg, #7B2FBE, #F47B20);
-    border-radius: 14px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 8px 16px rgba(123, 47, 190, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.feature-icon:hover {
+    transform: scale(1.05) rotate(-3deg);
 }
 
 /* ── Avatares ─────────────────────────────────────────────────────── */
 .avatar-circle {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     background: linear-gradient(135deg, #7B2FBE, #F47B20);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 700;
     flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(123, 47, 190, 0.3);
 }
 
 .avatar-large {
@@ -106,13 +155,14 @@
     align-items: center;
     justify-content: center;
     color: white;
+    box-shadow: 0 4px 12px rgba(123, 47, 190, 0.3);
 }
 
 /* ── Sidebar ──────────────────────────────────────────────────────── */
 .sidebar {
-    width: 250px;
-    min-height: 100vh;
-    background: #1a1a2e;
+    width: 260px;
+    height: 100vh; /* <-- A correção foi aqui (tiramos o 'min-') */
+    background: #11111f; 
     position: fixed;
     top: 0;
     left: 0;
@@ -120,58 +170,77 @@
     z-index: 100;
     display: flex;
     flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar-brand {
-    padding: 1.25rem 1rem;
+    padding: 1.5rem 1.2rem;
     color: white;
     font-weight: 700;
-    font-size: 1.05rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
 }
 
 .sidebar .nav-section-title {
-    color: rgba(255,255,255,0.35);
-    font-size: 0.68rem;
+    color: #6c7293;
+    font-size: 0.7rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 1rem 1rem 0.25rem;
+    letter-spacing: 0.12em;
+    padding: 1.5rem 1.2rem 0.5rem;
     list-style: none;
 }
 
 .sidebar .nav-link {
-    color: rgba(255,255,255,0.7);
-    padding: 0.45rem 1rem;
-    transition: background 0.15s, color 0.15s;
-    font-size: 0.9rem;
+    color: #a0a5ba;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
     border-radius: 0;
+    display: flex;
+    align-items: center;
+    border-left: 3px solid transparent; /* Preparando o terreno para o hover/active */
+}
+
+.sidebar .nav-link i {
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
 }
 
 .sidebar .nav-link:hover {
     color: #fff;
-    background: rgba(123, 47, 190, 0.25);
+    background: rgba(123, 47, 190, 0.15);
+    border-left: 3px solid rgba(123, 47, 190, 0.5);
 }
 
 .sidebar .nav-link.active {
     color: #fff;
-    background: rgba(123, 47, 190, 0.5);
+    background: rgba(123, 47, 190, 0.25);
+    border-left: 3px solid #F47B20; /* Destaque laranja para a página atual */
+    font-weight: 500;
+}
+
+.sidebar .nav-link.active i {
+    color: #F47B20;
 }
 
 .sub-nav-link {
-    padding-left: 2.25rem !important;
+    padding-left: 2.5rem !important;
+    font-size: 0.9rem !important;
 }
 
 .sidebar-footer {
-    padding: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
     margin-top: auto;
 }
 
 /* ── Conteúdo principal ───────────────────────────────────────────── */
 .main-content {
-    margin-left: 250px;
+    margin-left: 260px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -179,16 +248,59 @@
 
 .top-navbar {
     background: white;
-    border-bottom: 1px solid #e9ecef;
-    padding: 0.75rem 1.5rem;
+    border-bottom: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Sombra suave substituindo a borda dura */
+    padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
+
+/* ── Cards Gerais ─────────────────────────────────────────────────── */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid rgba(0,0,0,0.04) !important;
+    transition: all 0.3s ease;
 }
 
 /* ── Cards de estatísticas ────────────────────────────────────────── */
-.stat-card { border-left: 4px solid #7B2FBE; }
-.stat-card.secondary { border-left-color: #F47B20; }
+.stat-card { 
+    border-left: 4px solid #7B2FBE !important; 
+    border-radius: 12px;
+}
+.stat-card.secondary { 
+    border-left-color: #F47B20 !important; 
+}
+
+/* Efeito de flutuação ao passar o mouse nos cards de métricas */
+.stat-card:hover, .stat-card.secondary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+}
 
 /* ── Card headers coloridos ───────────────────────────────────────── */
-.card-header.bg-primary  { background-color: #7B2FBE !important; }
-.card-header.bg-secondary { background-color: #F47B20 !important; }
+.card-header {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.card-header.bg-primary  { background-color: #7B2FBE !important; color: white; }
+.card-header.bg-secondary { background-color: #F47B20 !important; color: white; }
+
+/* ── Tabelas ──────────────────────────────────────────────────────── */
+.table {
+    margin-bottom: 0;
+}
+.table th {
+    font-weight: 600;
+    color: #4a5568;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    padding: 1rem;
+}
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+}

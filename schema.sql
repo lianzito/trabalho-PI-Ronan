@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS usuarios(
     FOREIGN KEY (funcao_id) REFERENCES funcoes (id_funcao)
 );
 
--- TABELA DE TAREFAS (Concluindo o CRUD de tarefas)
+-- TABELA DE TAREFAS
 CREATE TABLE IF NOT EXISTS tarefas(
     id_tarefa BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,

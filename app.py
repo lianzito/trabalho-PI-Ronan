@@ -368,7 +368,6 @@ def funcoes_cadastrar():
     
     return render_template('dashboard/funcoes/form.html', titulo='Cadastrar Função', modo='cadastrar', item=None)
 
-# Lógica de atualizar as funções conectada ao BD
 @app.route('/funcoes/alterar/<int:id>', methods=['GET', 'POST'])
 @login_required
 def funcoes_alterar(id):
@@ -402,7 +401,6 @@ def funcoes_alterar(id):
 
     return render_template('dashboard/funcoes/form.html', titulo='Alterar Função', modo='alterar', item=item)
 
-# Lógica de visualização no BD
 @app.route('/funcoes/visualizar/<int:id>')
 @login_required
 def funcoes_visualizar(id):
@@ -412,7 +410,6 @@ def funcoes_visualizar(id):
         return redirect(url_for('funcoes_listar'))
     return render_template('dashboard/funcoes/visualizar.html', item=item)
 
-# Adicionada rota de exclusão que faltava
 @app.route('/funcoes/excluir/<int:id>', methods=['POST'])
 @login_required
 def funcoes_excluir(id):
@@ -429,8 +426,6 @@ def funcoes_relatorio():
     return render_template('dashboard/funcoes/relatorio.html')
 
 # CRUD DE TAREFAS 
-
-# Listar tarefas extraídas direto do DB, buscando o nome do responsávl
 @app.route('/tarefas/listar')
 @login_required
 def tarefas_listar():
@@ -443,7 +438,6 @@ def tarefas_listar():
     lista_tarefas = execute_query(sql, fetch=True)
     return render_template('dashboard/tarefas/listar.html', itens=lista_tarefas)
 
-# Cadastro inserindo no BD e buscando usuários para popular o select
 @app.route('/tarefas/cadastrar', methods=['GET', 'POST'])
 @login_required
 def tarefas_cadastrar():
@@ -472,7 +466,6 @@ def tarefas_cadastrar():
     lista_usuarios = execute_query('SELECT id_usuario, nome FROM usuarios', fetch=True)
     return render_template('dashboard/tarefas/form.html', titulo='Cadastrar Tarefa', modo='cadastrar', item=None, lista_usuarios=lista_usuarios)
 
-# Alterar com os dados do BD
 @app.route('/tarefas/alterar/<int:id>', methods=['GET', 'POST'])
 @login_required
 def tarefas_alterar(id):
@@ -506,7 +499,6 @@ def tarefas_alterar(id):
     lista_usuarios = execute_query('SELECT id_usuario, nome FROM usuarios', fetch=True)
     return render_template('dashboard/tarefas/form.html', titulo='Alterar Tarefa', modo='alterar', item=item, lista_usuarios=lista_usuarios)
 
-# Visualizar uma tarefa específica
 @app.route('/tarefas/visualizar/<int:id>')
 @login_required
 def tarefas_visualizar(id):
@@ -522,7 +514,6 @@ def tarefas_visualizar(id):
         return redirect(url_for('tarefas_listar'))
     return render_template('dashboard/tarefas/visualizar.html', item=item)
 
-# Rota de Excluir Tarefas
 @app.route('/tarefas/excluir/<int:id>', methods=['POST'])
 @login_required
 def tarefas_excluir(id):
