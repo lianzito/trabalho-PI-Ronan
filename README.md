@@ -40,6 +40,8 @@ Abra o terminal (cmd) e execute:
 git clone [https://github.com/GTI-Fatec-Jahu/pi-01-26.git](https://github.com/GTI-Fatec-Jahu/pi-01-26.git)
 cd pi-01-26
 
+---
+
 ### Passo 2: Criar e ativar o ambiente virtualBashpython -m venv venv
 # No Windows:
 venv\Scripts\activate
@@ -47,10 +49,14 @@ venv\Scripts\activate
 source venv/bin/activate
 (Quando o ambiente estiver ativo, o terminal mostrará (venv) no início da linha).
 
+---
+
 ### Passo 3: Instalar as dependências
 Bash
 pip install -r requirements.txt
 pip install mysql-connector-python
+
+---
 
 ### Passo 4: Configurar a conexão com o bancoAbra o arquivo db.py e verifique as configurações:Python_DB_PARAMS = {
     'host':     'localhost',
@@ -62,12 +68,18 @@ pip install mysql-connector-python
 }
 Faça o mesmo ajuste de senha na função iniciar_bd() no final do mesmo arquivo, se necessário.
 
+---
+
 ### Passo 5: Rodar a aplicaçãoBashpython app.py
 Na primeira execução, o script de inicialização (schema.sql) criará o banco de dados, as tabelas automaticamente e o usuário administrador padrão. O terminal exibirá: Banco e tabelas inicializados com sucesso!
 Usuário administrador padrão criado: admin@casagestor.com / admin1234
  * Running on [http://127.0.0.1:5000](http://127.0.0.1:5000)
 Acesse http://127.0.0.1:5000 no seu navegador para utilizar o sistema.
 
+---
+
 ### 🔐 Credenciais de acesso padrão
 E-mail: admin@casagestor.com
 Senha: admin1234
+
+---
