@@ -46,7 +46,10 @@ Passo 2: Criar e ativar o ambiente virtualBashpython -m venv venv
 venv\Scripts\activate
 # No Linux/Mac:
 source venv/bin/activate
-(Quando o ambiente estiver ativo, o terminal mostrará (venv) no início da linha).Passo 3: Instalar as dependênciasBashpip install -r requirements.txt
+(Quando o ambiente estiver ativo, o terminal mostrará (venv) no início da linha).
+Passo 3: Instalar as dependências
+Bash
+pip install -r requirements.txt
 pip install mysql-connector-python
 Passo 4: Configurar a conexão com o bancoAbra o arquivo db.py e verifique as configurações:Python_DB_PARAMS = {
     'host':     'localhost',
