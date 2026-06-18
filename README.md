@@ -52,7 +52,7 @@ source venv/bin/activate
 ---
 
 ### Passo 3: Instalar as dependências
-Bash
+Bash  
 pip install -r requirements.txt  
 pip install mysql-connector-python  
 
