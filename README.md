@@ -64,8 +64,6 @@ Python_DB_PARAMS = {
     'user':     'root',  
     'password': '',          # Deixe vazio se não definiu senha no XAMPP  
     'database': 'casa_gestor',  
-     
-    ...  
 }  
 Faça o mesmo ajuste de senha na função iniciar_bd() no final do mesmo arquivo, se necessário.  
 
